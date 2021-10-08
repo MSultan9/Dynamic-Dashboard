@@ -10,10 +10,8 @@ const DoughnutChart = ({ details, fetchOrder, setFetchOrder }) => {
       setTimeout(() => {
         fetch(`/data/${details.source}`)
           .then(res => res.json())
-          .then(data => {
-            setData(data)
-            setFetchOrder(order => order + 1)
-          })
+          .then(data => setData(data))
+          .finally(() => setFetchOrder(order => order + 1))
       }, 500);
   }, [fetchOrder, details, setFetchOrder])
 
