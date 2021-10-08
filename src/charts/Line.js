@@ -1,19 +1,34 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Line } from 'react-chartjs-2';
 
-const LineChart = ({ details, data }) => {
-
-    const options = {
-        scales: {
-            yAxes: [
-                {
-                    ticks: {
-                        beginAtZero: true,
-                    },
+const options = {
+    scales: {
+        yAxes: [
+            {
+                ticks: {
+                    beginAtZero: true,
                 },
-            ],
-        },
-    };
+            },
+        ],
+    },
+};
+
+const LineChart = ({ details, fetchOrder, setFetchOrder }) => {
+
+    const [data, setData] = useState();
+
+    useEffect(() => {
+        if (details.priority === fetchOrder)
+            setTimeout(() => {
+                fetch(`/data/${details.source}`)
+                    .then(res => res.json())
+                    .then(data => {
+                        setData(data)
+                        setFetchOrder(order => order + 1)
+                    })
+            }, 500);
+
+    }, [fetchOrder, details, setFetchOrder])
 
     return (
         <div className={`chart-wrapper size-${details.size}`}>
