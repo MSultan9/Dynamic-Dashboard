@@ -26,11 +26,13 @@ const options = {
     },
 };
 
-const LineChart = () => (
-    <div className="chart-wrapper">
-        <h1 className='title'>Line Chart</h1>
-        <Line data={data} options={options} />
-    </div>
-);
+const LineChart = ({ details }) => {
+    return (
+        <div className={`chart-wrapper size-${details.size}`}>
+            <h1 className='title'>Line Chart</h1>
+            <Line data={data} options={options} />
+        </div>
+    )
+};
 
 export default LineChart;

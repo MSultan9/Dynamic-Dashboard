@@ -36,11 +36,13 @@ const options = {
   },
 };
 
-const GroupedBar = () => (
-  <div className="chart-wrapper">
-    <h1 className='title'>Grouped Bar Chart</h1>
-    <Bar data={data} options={options} />
-  </div>
-);
+const GroupedBar = ({ details }) => {
+  return (
+    <div className={`chart-wrapper size-${details.size}`}>
+      <h1 className='title'>Grouped Bar Chart</h1>
+      <Bar data={data} options={options} />
+    </div>
+  )
+};
 
 export default GroupedBar;

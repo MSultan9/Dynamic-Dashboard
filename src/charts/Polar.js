@@ -20,11 +20,13 @@ const data = {
     ],
 };
 
-const Polar = () => (
-    <div className="chart-wrapper">
-        <h1 className='title'>Polar Area Chart</h1>
-        <PolarArea data={data} />
-    </div>
-);
+const Polar = ({ details }) => {
+    return (
+        <div className={`chart-wrapper size-${details.size}`}>
+            <h1 className='title'>Polar Area Chart</h1>
+            <PolarArea data={data} />
+        </div>
+    )
+};
 
 export default Polar;

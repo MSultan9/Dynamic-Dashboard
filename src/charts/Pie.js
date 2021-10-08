@@ -28,11 +28,13 @@ const data = {
     ],
 };
 
-const PieChart = () => (
-    <div className="chart-wrapper">
-        <h1 className='title'>Pie Chart</h1>
-        <Pie data={data} />
-    </div>
-);
+const PieChart = ({ details }) => {
+    return (
+        <div className={`chart-wrapper size-${details.size}`}>
+            <h1 className='title'>Pie Chart</h1>
+            <Pie data={data} />
+        </div>
+    )
+};
 
 export default PieChart;

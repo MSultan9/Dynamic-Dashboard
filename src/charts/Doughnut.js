@@ -28,11 +28,13 @@ const data = {
   ],
 };
 
-const DoughnutChart = () => (
-  <div className="chart-wrapper">
-    <h1 className='title'>Doughnut Chart</h1>
-    <Doughnut data={data} />
-  </div>
-);
+const DoughnutChart = ({ details }) => {
+  return (
+    <div className={`chart-wrapper size-${details.size}`}>
+      <h1 className='title'>Doughnut Chart</h1>
+      <Doughnut data={data} />
+    </div>
+  )
+};
 
 export default DoughnutChart;
